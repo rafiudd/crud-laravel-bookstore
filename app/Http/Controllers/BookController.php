@@ -68,7 +68,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $buku = DB::table('bukus')->where('id',$id)->get();
+        // passing data buku yang didapat ke view edit.blade.php
+        return view('edit',['buku' => $buku]);
     }
 
     /**
@@ -78,9 +80,18 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    // update data 
+    public function update(Request $request)
     {
-        //
+        // update data pegawai
+        DB::table('bukus')->where('id',$request->id)->update([
+            'judul' => $request->judul,
+            'penerbit' => $request->penerbit,
+            'tahun_terbit' => $request->tahun_terbit,
+            'pengarang' => $request->pengarang
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/books');
     }
 
     /**

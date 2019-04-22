@@ -109,9 +109,9 @@ h1 {
         <td>{{$b->tahun_terbit}}</td>
         <td>{{$b->pengarang}}</td>
         <td>
-        <a href="/pegawai/edit/{{ $b->pegawai_id }}">Edit</a>
+        <a href="/books/edit/{{ $b->id }}">Edit</a>
         
-        <a href="/pegawai/hapus/{{ $b->pegawai_id }}">Hapus</a>
+        <a href="/books/hapus/{{ $b->id }}">Hapus</a>
       </td>
     </tr>
     @endforeach
